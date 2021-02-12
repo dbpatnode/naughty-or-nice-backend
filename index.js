@@ -73,6 +73,6 @@ app.delete("/santaslist/:id", async(req, res) => {
     }
 })
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log("Server has been started on port 5000")
 })
