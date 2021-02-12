@@ -15,7 +15,7 @@
     "url": "git+https://github.com/dbpatnode/naughty-or-nice-backend.git"
   },
   "author": "daniel-patnode",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dbpatnode/naughty-or-nice-backend/issues"
   },
@@ -23,6 +23,11 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "pg": "^8.5.1"
+    "heroku": "^7.47.12",
+    "pg": "^8.5.1",
+    "start": "^5.1.0"
+  },
+  "engines": {
+    "node": "14.3.0"
   }
 }
