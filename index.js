@@ -45,7 +45,7 @@ app.get("/santaslist/:id", async(req, res) => {
         console.error(err.message)
     }
 })
-//update a  list item
+//update a  list item(PUT)
 
 app.put("/santaslist/:id", async(req, res) => {
     try {
@@ -59,15 +59,19 @@ app.put("/santaslist/:id", async(req, res) => {
     }
 })
 
-//delete a list item
+//delete a list item (DELETE)
 
-// app.destroy("/santaslist/:id", async(req, res) => {
-//     try {
-//         console.log(req.params)
-//     } catch(err){
-//         console.error(err.message)
-//     }
-// })
+app.delete("/santaslist/:id", async(req, res) => {
+    try {
+        const { id } = req.params
+
+        const deleteItem = await pool.query("DELETE FROM listitems WHERE listitem_id = $1", [id]) 
+        
+        res.json("person was deleted from santas list")
+    } catch(err){
+        console.error(err.message)
+    }
+})
 
 app.listen(5000, () => {
     console.log("Server has been started on port 5000")
