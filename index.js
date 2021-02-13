@@ -11,12 +11,16 @@ app.use(express.json())//req.body
 
 //create a list item (POST)
 app.post("/santaslist", async(req,res) => {
+    console.log(req.body)
+    // console.log(req.headers)
+    // console.log(res)
     try {
         const { name, street, city, state, zipcode, naughty, nice } = req.body
         const newListItem = await pool.query("INSERT INTO listitems(name, street, city, state, zipcode, naughty, nice) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",[name, street, city, state, zipcode, naughty, nice])
 
         res.json(newListItem.rows[0])
     } catch (err){
+
         console.error(err.message)
     }
 })
